@@ -1,3 +1,21 @@
+import os
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import threading
+
+# Простейший HTTP-сервер, чтобы Render видел открытый порт и не сбрасывал бота
+class HealthCheckHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Bot is running!")
+
+def run_web_server():
+    port = int(os.environ.get("PORT", 10000))
+    server = HTTPServer(("0.0.0.0", port), HealthCheckHandler)
+    server.serve_forever()
+
+# Запускаем веб-сервер в фоновом потоке
+threading.Thread(target=run_web_server, daemon=True).start()
 import asyncio
 import logging
 import sys
