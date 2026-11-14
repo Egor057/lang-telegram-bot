@@ -101,7 +101,7 @@ logging.basicConfig(
 logger = logging.getLogger("LanguageBotCore")
 
 # Токен бота (интегрирован из твоего запроса)
-BOT_TOKEN = "9136166835:AAFyiKv_mEdALdqv_jppx4iWbng37SRP-RQ"
+BOT_TOKEN = "9084719584:AAGuBzbaD9qtOEoR4Hw4Ok_eL9Miic35Nb4"
 ADMIN_TELEGRAM_ID = 9136166835
 
 # Конфигурация файлов базы данных
